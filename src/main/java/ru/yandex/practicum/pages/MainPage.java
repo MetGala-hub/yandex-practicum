@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.List;
 
 public class MainPage {
     public static final String DEFAULT_URL = "https://qa-scooter.education-services.ru/";
@@ -22,8 +21,6 @@ public class MainPage {
     private final By bottomOrderButton = By.xpath("//div[contains(@class,'Home_FinishButton')]//button[text()='Заказать']");
 
     private final By faqHeading = By.xpath("//*[text()='Вопросы о важном']");
-
-    private final By faqQuestions = By.xpath("//*[@id='accordion__heading-0']/parent::div/parent::div/div[1]");
 
     private final WebDriver driver;
     private final WebDriverWait wait;
@@ -55,10 +52,6 @@ public class MainPage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(answer)).getText();
     }
 
-    public int faqQuestionCount() {
-        return driver.findElements(faqQuestions).size();
-    }
-
     public void clickScooterLogo() {
         wait.until(ExpectedConditions.elementToBeClickable(scooterLogo)).click();
     }
@@ -67,5 +60,5 @@ public class MainPage {
         wait.until(ExpectedConditions.elementToBeClickable(yandexLogo)).click();
     }
 
-    public enum OrderButton { TOP, BOTTOM }
+    public enum OrderButton {TOP, BOTTOM}
 }

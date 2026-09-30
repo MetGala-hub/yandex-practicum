@@ -17,11 +17,10 @@ public class OrderStatusPage {
 
     private final By notFound = By.xpath("//img[contains(@alt,'Not found') or contains(@src,'not-found')]");
 
-    private final WebDriver driver;
     private final WebDriverWait wait;
 
     public OrderStatusPage(WebDriver driver) {
-        this.driver = driver;
+
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(12));
     }
 
